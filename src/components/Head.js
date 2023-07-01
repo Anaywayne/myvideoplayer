@@ -43,7 +43,7 @@ const Head = () => {
     dispatch(toggleMenu());
   };
   return (
-    <div className="grid grid-flow-col p-5 m-2 shadow-lg">
+    <div className="fixed flex justify-between items-center w-full shadow-lg bg-white p-2 px-3">
       <div className="flex col-span-1">
         <img
           onClick={() => toggleMenuHandler()}
@@ -59,9 +59,9 @@ const Head = () => {
           />
         </a>
       </div>
-      <div className="col-span-10 px-10">
+      <div className="flex ">
         <input
-          className="px-5 w-1/2 border border-gray-400 p-2 rounded-l-full "
+          className="px-5 w-[25em] border border-gray-400 p-2 rounded-l-full "
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
@@ -76,8 +76,8 @@ const Head = () => {
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnAlWBnJ-PpLiQdEiHfutdlogpxPJafCK4Cg&usqp=CAU"
           ></img> */}
         </button>
-        {showSuggestions && (
-          <div className="fixed bg-white py-2 px-2 w-[37rem] shadow-lg rounded-lg border border-gray-100">
+        {showSuggestions && suggestions.length > 0 && (
+          <div className=" fixed bg-white px-2 w-[25rem] my-11 shadow-lg rounded-lg border border-gray-100">
             <ul>
               {suggestions.map((s) => (
                 <li key={s} className="py-2 px-3 shadow-sm hover:bg-gray-100">
